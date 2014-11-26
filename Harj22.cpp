@@ -35,13 +35,35 @@ Versio 1.0
 */
 
 #include <iostream>
+#include <algorithm>
+#include <vector>
+#include <ctime>
 using namespace std;
 
+enum SUIT{ SPADES = 0, HEARTS, CLUBS, DIAMOND };
+enum RANK {ACE = 1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING};
+
+struct Card{
+	SUIT suit;
+	RANK rank;
+};
+
+const int MAX_HAND = 10;
+const int MAX_DECK = 52;
+
+
+
+
+
+
+
 int AskWhatToDo();
-
-
+void CreateDeck(std::vector<Card>*);
+void DrawACrad();
+void PrintCard();
 int main(){
-	enum LAND{ SPADES = 0, HEARTS, CLUBS, DIAMOND };
+	std::vector<Card> Deck; 
+	
 	int choice;
 
 	do{
@@ -52,9 +74,9 @@ int main(){
 		case 0: exit(0);
 		case 1:	cout << "\nYou got card: " << endl;
 			break;
-		case 2: cout << "\n: " << endl;
+		case 2: cout << "\nCards: " << endl;
 			break;
-		case 3: cout << "\n: " << endl;
+		case 3: cout << "\nYou got : " << endl;
 		}
 	} while (choice = !0);
 }
@@ -62,7 +84,7 @@ int main(){
 
 
 
-int AskWhatToDo()
+int AskWhatToDo(void)
 {
 	int choice;
 	cout << "Menu";
@@ -73,3 +95,18 @@ int AskWhatToDo()
 	cin >> ws >> choice;
 	return choice;
 }
+
+
+void CreateDeck(std::vector<Card>*arg1){
+	for (int i = 1; i <= 13; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			(*arg1).push_back({ SUIT(j), i, false });
+			if ((*arg1)[i - 1].value == 1){ (*arg1)[i - 1].ACE = true; }
+		}
+	}
+	srand(time(NULL));
+	std::random_shuffle((*arg1).begin(), (*arg1).end());
+}
+
