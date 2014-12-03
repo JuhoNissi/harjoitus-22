@@ -46,15 +46,12 @@ enum RANK {ACE = 1, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, 
 struct Card{
 	SUIT suit;
 	RANK rank;
+	bool Ace;
+	//Card(SUIT s, RANK r);
 };
 
 const int MAX_HAND = 10;
 const int MAX_DECK = 52;
-
-
-
-
-
 
 
 int AskWhatToDo();
@@ -103,10 +100,14 @@ void CreateDeck(std::vector<Card>*arg1){
 		for (int j = 0; j < 4; j++)
 		{
 			(*arg1).push_back({ SUIT(j), i, false });
-			if ((*arg1)[i - 1].value == 1){ (*arg1)[i - 1].ACE = true; }
+			if ((*arg1)[i - 1].rank == 1){ (*arg1)[i - 1].Ace = true; }
 		}
 	}
 	srand(time(NULL));
 	std::random_shuffle((*arg1).begin(), (*arg1).end());
 }
 
+
+void DrawACard(){
+
+}

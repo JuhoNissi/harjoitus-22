@@ -10,6 +10,12 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Blackjack.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cards.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{37BDB8A2-8597-46AC-BAB4-4B4DBECDEDA7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -77,9 +83,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Git\harjoitus-22\Harj22.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
